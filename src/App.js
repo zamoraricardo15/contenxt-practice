@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AppContext from './AppContext';
+import Student from "./Student";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            firstName : "Mike",
+            lastName : "Willis",
+            age : 30,
+            bootcamp: "Fullstack Flex Bootcamp"
+        }
+    }
+
+    render(){
+        let contextValues = {
+            firstName : this.state.firstName,
+            lastName : this.state.lastName,
+            age : this.state.age,
+            bootcamp: this.state.bootcamp
+        };
+
+        return (
+            <AppContext.Provider value={contextValues} >
+                <div className="App">
+                    <Student/>
+                </div>
+            </AppContext.Provider>
+        );
+    }
+
 }
 
 export default App;
