@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import AppContext from './AppContext';
 import Student from "./Student";
+import AppContext from './AppContext';
 
 class App extends React.Component {
     constructor(props){
@@ -14,20 +14,26 @@ class App extends React.Component {
         }
     }
 
+    handleClick = () => {
+        console.log("Clicked handleClick");
+    };
+
     render(){
         let contextValues = {
             firstName : this.state.firstName,
             lastName : this.state.lastName,
             age : this.state.age,
-            bootcamp: this.state.bootcamp
+            bootcamp : this.state.bootcamp,
+            handleClick : this.handleClick
         };
 
         return (
-            <AppContext.Provider value={contextValues} >
+            <AppContext.Provider value={contextValues}>
                 <div className="App">
                     <Student/>
                 </div>
             </AppContext.Provider>
+
         );
     }
 
