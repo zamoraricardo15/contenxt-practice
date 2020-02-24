@@ -15,7 +15,10 @@ class App extends React.Component {
     }
 
     handleClick = () => {
-        console.log("Clicked handleClick");
+        this.setState({
+            firstName : "",
+            lastName : ""
+        });
     };
 
     render(){
@@ -33,7 +36,6 @@ class App extends React.Component {
                     <Student/>
                 </div>
             </AppContext.Provider>
-
         );
     }
 
